@@ -1,3 +1,2 @@
-# User Auth API
+# Pet Inn Backend
 
-Implement user authentication using passport js
