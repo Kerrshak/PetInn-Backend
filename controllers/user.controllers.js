@@ -7,6 +7,7 @@ exports.insertUserController = (req, res, next) => {
       const user = new userModel({
         username: req.body.username,
         password: hashedPassword,
+        email: req.body.email,
         avatar_url: req.body.avatar_url,
         bio: req.body.bio,
         location: req.body.location,
@@ -21,7 +22,9 @@ exports.insertUserController = (req, res, next) => {
 };
 
 exports.loginUserController = (req, res, next) => {
-  res.send({ user: req.user });
+  const userObj = { ...req.user._doc };
+  delete userObj.password;
+  res.send({ user: userObj });
 };
 
 exports.logoutUserController = async (req, res, next) => {
