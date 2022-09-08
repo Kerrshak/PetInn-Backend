@@ -2,7 +2,7 @@ const userModel = require("../models/user.models");
 const bcryptJs = require("bcryptjs");
 
 exports.insertUserController = (req, res, next) => {
-  bcryptJs.hash(req.body.password, 10, (err, hashedPassword) => {
+  bcryptJs.hash(req.body.password, 10, async (err, hashedPassword) => {
     try {
       const user = new userModel({
         username: req.body.username,
@@ -12,7 +12,7 @@ exports.insertUserController = (req, res, next) => {
         location: req.body.location,
         watchlist: req.body.watchlist,
       });
-      user.save();
+      await user.save();
       res.sendStatus(201);
     } catch (error) {
       console.log(error);
