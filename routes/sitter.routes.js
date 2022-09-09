@@ -5,13 +5,13 @@ const {
 	getListing,
 	deleteListing,
 } = require("../controllers/sitter.controllers.js");
-const passport = require("../middleware/passport");
+const { isAuthenticated } = require("../middleware/isAuthenticated");
 
 const router = express.Router();
 
-router.post("/listings", passport.authenticate("local"), postListing);
+router.post("/listings", isAuthenticated, postListing);
 router.get("/listings", getListings);
 router.get("/listings/:_id", getListing);
-router.delete("/listings/:_id", deleteListing);
+router.delete("/listings/:_id", isAuthenticated, deleteListing);
 
 module.exports = router;

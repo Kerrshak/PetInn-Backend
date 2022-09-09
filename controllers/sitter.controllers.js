@@ -1,15 +1,15 @@
-const sitterModel = require("../models/sitter.model");
+const sitterModel = require("../models/sitter.models");
 
 exports.postListing = (req, res, next) => {
 	try {
 		const postSitter = new sitterModel({
 			username: req.body.username,
+			title: req.body.title,
 			suitable_pets: req.body.suitable_pets,
 			dates: req.body.dates,
 			location: req.body.location,
 			additonal_info: req.body.additonal_info,
 			payment: req.body.payment,
-			title: req.body.title,
 			user_avatar_url: req.body.user_avatar_url,
 		});
 		postSitter.save();
