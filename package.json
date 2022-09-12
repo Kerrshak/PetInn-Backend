@@ -4,7 +4,7 @@
   "description": "",
   "main": "listen.js",
   "scripts": {
-    "start": "nodemon listen.js"
+    "start": "node listen.js"
   },
   "keywords": [],
   "author": "",
