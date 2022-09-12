@@ -14,14 +14,14 @@
 - POST `/api/reviews`
 - DELETE `/api/reviews/:_id`
 
-## Owners
+### Owners
 
 - GET `/api/owner/listings`
 - GET `/api/owner/listings/:_id`
 - POST `/api/owner/listings`
 - DELETE `/api/owner/listings/:_id`
   
-## Sitters
+### Sitters
 
 - GET `/api/sitters/listings`
 - GET `/api/sitters/listings/:_id`
