@@ -16,10 +16,10 @@
 
 ### Owners
 
-- GET `/api/owner/listings`
-- GET `/api/owner/listings/:_id`
-- POST `/api/owner/listings`
-- DELETE `/api/owner/listings/:_id`
+- GET `/api/owners/listings`
+- GET `/api/owners/listings/:_id`
+- POST `/api/owners/listings`
+- DELETE `/api/owners/listings/:_id`
   
 ### Sitters
 
