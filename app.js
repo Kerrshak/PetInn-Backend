@@ -36,4 +36,12 @@ app.use("/api/sitters", sitterRouters);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/owners", ownerRouters);
 
+app.all("/*", (req, res) => {
+  res.sendStatus(404);
+});
+
+app.use((err, req, res, next) => {
+  console.log(err);
+});
+
 module.exports = app;

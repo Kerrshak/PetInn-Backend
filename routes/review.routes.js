@@ -3,11 +3,12 @@ const router = express.Router();
 const {
   getReviewsController,
   postReviewsController,
+  deleteReviewController,
 } = require("../controllers/review.controllers");
 const { isAuthenticated } = require("../middleware/isAuthenticated");
 
 router.get("/", getReviewsController);
 router.post("/", isAuthenticated, postReviewsController);
-router.delete("/", isAuthenticated);
+router.delete("/:_id", isAuthenticated, deleteReviewController);
 
 module.exports = router;

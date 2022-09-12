@@ -24,3 +24,13 @@ exports.postReviewsController = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.deleteReviewController = async (req, res, next) => {
+  try {
+    const { _id } = req.params;
+    await reviewModel.deleteOne({ _id: _id });
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+};
