@@ -27,4 +27,12 @@ app.use("/api", apiRouter);
 app.use("/api/users", userRouters);
 app.use("/api/reviews", reviewRoutes);
 
+app.all("/*", (req, res) => {
+  res.sendStatus(404);
+});
+
+app.use((err, req, res, next) => {
+  console.log(err);
+});
+
 module.exports = app;
