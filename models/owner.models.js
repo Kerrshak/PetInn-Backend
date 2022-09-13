@@ -6,7 +6,8 @@ const OwnerListingSchema = new Schema({
 	title: { type: String, required: true },
 	pets: { type: Array, required: true },
 	payment: { type: Number, required: true, default: 0 },
-	dates: { type: Object, required: true },
+	from_date: { type: Date, required: true },
+	to_date: { type: Date, required: true },
 	date_added: { type: Date, required: true, default: Date.now() },
 	reviews: {
 		type: mongoose.Schema.Types.ObjectId,

@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const {
-  getReviewsController,
-  postReviewsController,
-  deleteReviewController,
+	getReviewsController,
+	postReviewsController,
+	deleteReviewController,
 } = require("../controllers/review.controllers");
 const { isAuthenticated } = require("../middleware/isAuthenticated");
 
-router.get("/", getReviewsController);
+router.get("/:username", getReviewsController);
 router.post("/", isAuthenticated, postReviewsController);
 router.delete("/:_id", isAuthenticated, deleteReviewController);
 
