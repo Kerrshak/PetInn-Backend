@@ -35,3 +35,10 @@ exports.logoutUserController = async (req, res, next) => {
 		res.sendStatus(200);
 	});
 };
+
+exports.patchWatchList = async (req, res, next) => {
+	const { username } = req.params;
+	const updateWatchList = await userModel.updateOne({ username: username });
+
+	await res.sendStatus(200);
+};
