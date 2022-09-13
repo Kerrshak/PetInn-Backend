@@ -14,18 +14,18 @@ app.use(express.json());
 app.use(cors({ origin: true, credentials: true }));
 
 app.use(
-  session({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: true,
-  })
+	session({
+		secret: process.env.SECRET,
+		resave: false,
+		saveUninitialized: true,
+	})
 );
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-  res.locals.currentUser = req.user;
-  next();
+	res.locals.currentUser = req.user;
+	next();
 });
 
 // Routes
@@ -35,11 +35,16 @@ app.use("/api/reviews", reviewRoutes);
 app.use("/api/owners", ownerRouters);
 
 app.all("/*", (req, res) => {
-  res.sendStatus(404);
+	res.sendStatus(404);
 });
 
 app.use((err, req, res, next) => {
-  console.log(err);
+	console.log("error boys");
+	console.log(err);
+	console.log(Object.keys(err));
+	if (err.path === "_id") {
+		console.log("invalid id");
+	}
 });
 
 module.exports = app;

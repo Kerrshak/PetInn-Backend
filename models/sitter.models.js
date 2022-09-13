@@ -6,7 +6,8 @@ const SitterListingSchema = new Schema({
 	title: { type: String, required: true },
 	suitable_pets: { type: Array, required: true },
 	payment: { type: Number, required: true, default: 0 },
-	dates: { type: Object, required: true },
+	from_date: { type: Date, required: true },
+	to_date: { type: Date, required: true },
 	date_posted: { type: Date, required: true, default: Date.now() },
 	reviews: {
 		type: mongoose.Schema.Types.ObjectId,
