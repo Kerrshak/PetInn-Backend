@@ -4,7 +4,6 @@ const {
 	loginUserController,
 	logoutUserController,
 	getUserInfoController,
-	patchWatchList,
 } = require("../controllers/user.controllers");
 const passport = require("../middleware/passport");
 const { isAuthenticated } = require("../middleware/isAuthenticated");
