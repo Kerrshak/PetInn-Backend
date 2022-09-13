@@ -47,3 +47,27 @@ exports.getUserInfoController = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.getUserInfoController = async (req, res, next) => {
+	try {
+		const { username } = req.params;
+		const user = await userModel.findOne({ username: username });
+		const userObj = user.email;
+
+		res.status(200).send({ email: userObj });
+	} catch (err) {
+		next(err);
+	}
+};
+
+// exports.patchWatchList = async (req, res, next) => {
+// 	const { newListing } = req.body;
+// 	console.log(req.body);
+// 	const { username } = req.params;
+// 	const updateWatchList = await userModel.findOneAndUpdate(
+// 		{ username: username },
+// 		{ $push: { watchlist: newListing } }
+// 	);
+// 	console.log(updateWatchList);
+// 	await res.sendStatus(200);
+// };
