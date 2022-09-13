@@ -4,6 +4,9 @@ const {
 	loginUserController,
 	logoutUserController,
 	getUserInfoController,
+	patchWatchList,
+	deleteWatchList,
+	findAllUser,
 } = require("../controllers/user.controllers");
 const passport = require("../middleware/passport");
 const { isAuthenticated } = require("../middleware/isAuthenticated");
@@ -15,6 +18,10 @@ router.post("/login", passport.authenticate("local"), loginUserController);
 
 router.get("/logout", logoutUserController);
 
-// router.patch("/:username/watchlist", patchWatchList);
+router.patch("/:username/watchlist", patchWatchList);
+
+router.delete("/:username/watchlist", deleteWatchList);
+
+// router.get("/", findAllUser);
 
 module.exports = router;
