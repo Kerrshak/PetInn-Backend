@@ -8,6 +8,7 @@ const userRouters = require("./routes/user.routes");
 const sitterRouters = require("./routes/sitter.routes");
 const reviewRoutes = require("./routes/review.routes");
 const ownerRouters = require("./routes/owner.routes");
+const contactRouters = require("./routes/userContact.routes");
 
 dotenv.config();
 app.use(express.json());
@@ -33,6 +34,7 @@ app.use("/api/users", userRouters);
 app.use("/api/sitters", sitterRouters);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/owners", ownerRouters);
+app.use("/api/contact", contactRouters);
 
 app.all("/*", (req, res) => {
 	res.sendStatus(404);
