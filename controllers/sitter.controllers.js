@@ -6,8 +6,8 @@ exports.postListing = (req, res, next) => {
 			username: req.body.username,
 			title: req.body.title,
 			suitable_pets: req.body.suitable_pets,
-			from_date: req.body.from_date,
-			to_date: req.body.to_date,
+			date_from: req.body.date_from,
+			date_to: req.body.date_to,
 			location: req.body.location,
 			additonal_info: req.body.additonal_info,
 			payment: req.body.payment,
@@ -21,7 +21,7 @@ exports.postListing = (req, res, next) => {
 };
 
 exports.getListings = async (req, res, next) => {
-	const { username, from_date, to_date, location, pets } = req.query;
+	const { username, date_from, date_to, location, pets } = req.query;
 	try {
 		const filters = {};
 		if (username !== undefined) {
@@ -33,11 +33,11 @@ exports.getListings = async (req, res, next) => {
 		if (pets !== undefined) {
 			filters.pets = pets;
 		}
-		if (from_date !== undefined) {
-			filters.from_date = { $gte: from_date };
+		if (date_from !== undefined) {
+			filters.date_from = { $gte: date_from };
 		}
-		if (to_date !== undefined) {
-			filters.to_date = { $lte: to_date };
+		if (date_to !== undefined) {
+			filters.date_to = { $lte: date_to };
 		}
 		const sitterListings = await sitterModel.find(filters).sort();
 		const sitterListingsObj = { sitterListings };
