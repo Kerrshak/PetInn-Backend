@@ -9,7 +9,7 @@ exports.postListing = (req, res, next) => {
 			date_from: req.body.date_from,
 			date_to: req.body.date_to,
 			location: req.body.location,
-			additonal_info: req.body.additonal_info,
+			additional_info: req.body.additional_info,
 			payment: req.body.payment,
 			user_avatar_url: req.body.user_avatar_url,
 		});
