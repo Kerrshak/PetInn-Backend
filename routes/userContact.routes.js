@@ -1,9 +1,9 @@
 const express = require("express");
-const { getUserInfoController } = require("../controllers/user.controllers");
-
-const { isAuthenticated } = require("../middleware/isAuthenticated");
-
 const router = express.Router();
+const {
+  getUserInfoController,
+} = require("../controllers/userContact.controllers");
+const { isAuthenticated } = require("../middleware/isAuthenticated");
 
 router.get("/:username", getUserInfoController);
 
