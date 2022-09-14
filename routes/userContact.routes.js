@@ -5,6 +5,6 @@ const {
 } = require("../controllers/userContact.controllers");
 const { isAuthenticated } = require("../middleware/isAuthenticated");
 
-router.get("/:username", isAuthenticated, getUserInfoController);
+router.get("/:username", getUserInfoController);
 
 module.exports = router;

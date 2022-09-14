@@ -20,6 +20,7 @@ exports.postReviewsController = async (req, res, next) => {
 			username: req.body.listingUsername,
 			posted_by: req.user._doc.username,
 			body: req.body.body,
+			rating: req.body.rating,
 		});
 		await newReview.save();
 		res.sendStatus(201);
