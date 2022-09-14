@@ -22,6 +22,6 @@ router.patch("/:username/watchlist", patchWatchList);
 
 router.delete("/:username/watchlist", deleteWatchList);
 
-// router.get("/", findAllUser);
+// router.get("/", findAllUser)
 
 module.exports = router;
