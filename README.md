@@ -2,7 +2,15 @@
 
 ## Summary
 
-This is a backend server that uses its endpoints to access, store, and alter data on MongoDB. It is designed to be used with a pet & home sitting app that can be found here: `https://github.com/YeastWrangler/Pet-Inn`
+This is a backend server that uses its endpoints to access, store, and alter data on MongoDB. It is designed to be used with a pet & home sitting app that can be found here: https://github.com/YeastWrangler/Pet-Inn
+
+## Technologies used
+
+- mongoDB
+- mongoATLAS
+- express
+- mongoose
+- passport
 
 ## Minimum node version
 
@@ -18,11 +26,11 @@ You will need to create a file called `.env` in the `PETINN-BACKEND` folder. A g
 Open the repo in your chosen code editor. To install the necessary dependencies open the terminal and run  
 `npm install`
 
-Then, to locally host the server, run `npm run dev` in the terminal. It can then be accessed from `http://localhost:9090/`
+Then, to locally host the server, run `npm run dev` in the terminal. It can then be accessed from `http://localhost:9090/`. Using Insomnia allows for making GET, POST, and DELETE requests on the various endpoints.
 
 ## Hosted site
 
-`https://busy-ruby-narwhal-kit.cyclic.app`
+https://busy-ruby-narwhal-kit.cyclic.app
 
 ## Endpoints
 
