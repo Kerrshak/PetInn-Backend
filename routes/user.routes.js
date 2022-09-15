@@ -3,10 +3,9 @@ const {
 	insertUserController,
 	loginUserController,
 	logoutUserController,
-	getUserInfoController,
 	patchWatchList,
 	deleteWatchList,
-	findAllUser,
+	getWatchList,
 } = require("../controllers/user.controllers");
 const passport = require("../middleware/passport");
 const { isAuthenticated } = require("../middleware/isAuthenticated");
@@ -22,6 +21,6 @@ router.patch("/:username/watchlist", patchWatchList);
 
 router.delete("/:username/watchlist", deleteWatchList);
 
-// router.get("/", findAllUser)
+router.get("/:username/watchlist", getWatchList);
 
 module.exports = router;

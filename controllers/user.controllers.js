@@ -52,14 +52,13 @@ exports.getUserInfoController = async (req, res, next) => {
 exports.patchWatchList = async (req, res, next) => {
 	const newListing = req.body;
 	const { username } = req.params;
-	console.log(newListing);
 	try {
 		const updateWatchList = await userModel.findOneAndUpdate(
 			{ username: username },
 			{ $push: { watchlist: newListing } }
 		);
-		const updatedUser = { user: updateWatchList };
-		res.status(201).send(updatedUser);
+		const getWatchList = await userModel.findOne({ username: username });
+		res.status(201).send({ watchlist: getWatchList.watchlist });
 	} catch (err) {
 		next(err);
 	}
@@ -77,18 +76,19 @@ exports.deleteWatchList = async (req, res, next) => {
 				},
 			}
 		);
-		res.status(200).send({ updateWatchList });
+		const getWatchList = await userModel.findOne({ username: username });
+		res.status(200).send({ watchlist: getWatchList });
 	} catch (err) {
 		next(err);
 	}
 };
 
-// exports.findAllUser = async (req, res, next) => {
-// 	try {
-// 		const updateWatchList = await userModel.find();
-// 		console.log(updateWatchList);
-// 		res.status(200).send({ updateWatchList });
-// 	} catch (err) {
-// 		next(err);
-// 	}
-// };
+exports.getWatchList = async (req, res, next) => {
+	const { username } = req.params;
+	try {
+		const updateWatchList = await userModel.findOne({ username: username });
+		res.status(200).send({ watchlist: updateWatchList.watchlist });
+	} catch (err) {
+		next(err);
+	}
+};
