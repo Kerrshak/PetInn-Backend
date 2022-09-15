@@ -8,7 +8,7 @@ const {
 const { isAuthenticated } = require("../middleware/isAuthenticated");
 
 router.get("/:username", getReviewsController);
-router.post("/", isAuthenticated, postReviewsController);
+router.post("/", postReviewsController);
 router.delete("/:_id", isAuthenticated, deleteReviewController);
 
 module.exports = router;
