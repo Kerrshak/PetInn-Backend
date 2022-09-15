@@ -18,7 +18,7 @@ exports.postReviewsController = async (req, res, next) => {
 	try {
 		const newReview = new reviewModel({
 			username: req.body.listingUsername,
-			posted_by: req.user._doc.username,
+			posted_by: req.body.username,
 			body: req.body.body,
 			rating: req.body.rating,
 		});
